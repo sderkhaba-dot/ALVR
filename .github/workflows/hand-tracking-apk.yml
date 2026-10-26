@@ -1,0 +1,52 @@
+name: Build hand tracking APK
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build_apk:
+    name: Build PhoneVR APK (noGvr debug)
+    runs-on: ubuntu-latest
+    env:
+      GRADLE_DIR: code/mobile/android/PhoneVR
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: 'true'
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'oracle'
+          java-version: '17'
+
+      - name: Prepare ALVR and Cardboard dependencies
+        run: |
+          cd ${{ env.GRADLE_DIR }}
+          chmod +x prepare-alvr-deps.sh ./gradlew
+          bash prepare-alvr-deps.sh nogvr
+
+      # The project fails the build if the code style is off, so format the new code first.
+      - name: Format code (spotlessApply)
+        run: |
+          cd ${{ env.GRADLE_DIR }}
+          ./gradlew :app:spotlessApply --stacktrace -Dorg.gradle.java.home=${{ env.JAVA_HOME }}
+
+      - name: Build APK (noGvr debug)
+        run: |
+          cd ${{ env.GRADLE_DIR }}
+          ./gradlew :app:assembleNoGvrDebug --warning-mode=all --stacktrace -Dorg.gradle.java.home=${{ env.JAVA_HOME }}
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: PhoneVR-hand-tracking-APK
+          path: ${{ env.GRADLE_DIR }}/app/build/outputs/apk/noGvr/debug/*.apk
+
+      - name: Upload build logs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-files
+          path: ${{ env.GRADLE_DIR }}/app/.cxx/

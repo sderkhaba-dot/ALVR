@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name_full">PhoneVR</string>
+    <string name="app_name_lite">PhoneVR noGvr</string>
+    <string name="app_crash_toast">Oh no :( PVR has unfortunately crashed. Dev team will be notified. You can create an issue on Github or Discord.</string>
+    <string name="pc_ip">PC IP</string>
+    <string name="auto">Auto</string>
+    <string name="_00000">00000</string>
+    <string name="resolution_factor_height_8">Resolution factor (height / 8)</string>
+    <string name="motion_to_photon_latency_s">Motion to photon latency [s]</string>
+    <string name="additional_off_screen_fov_deg">Additional off screen FOV [deg]</string>
+    <string name="_0_000">0.000</string>
+    <string name="_000">000</string>
+    <string name="pose_stream_port">Pose stream port</string>
+    <string name="the_device_is_not_discoverable_right_now_go_back_to_let_it_be_discoverable_again">The device is not discoverable right now. Go back to let it be discoverable again</string>
+    <string name="pairing_port">Pairing port</string>
+    <string name="video_stream_port">Video stream port</string>
+    <string name="stats">Stats</string>
+    <string name="warp_reprojection">Warp/reprojection</string>
+    <string name="_00_0">00.0</string>
+    <string name="share_logs">Share Logs</string>
+    <string name="open_logs">Open Full Log</string>
+    <string name="log_recent_100_lines">Log (Recent 100 lines)</string>
+    <string name="log">Log</string>
+    <string name="pick_logfile">Pick a log file to open</string>
+    <string name="use_phonevr_legacy_streamer">Use PhoneVR(GoogleVR API) legacy Server</string>
+    <string name="use_alvr_streamer_recommended">Use ALVR(Cardboard API) Server (recommended)</string>
+    <string name="phonevr_support_common">PhoneVR supports two VR packages, ALVR-CardboardAPI or PhoneVR-GvrAPI. You can read more about these packages in https://github.com/PhoneVR-Developers/PhoneVR#readme.</string>
+    <string-array name="logsFiles">
+        <item>pvrlog.txt</item>
+        <item>pvrDebuglog.txt</item>
+    </string-array>
+    <string name="title_activity_vr">ALVR</string>
+    <string name="read_storage_permission">
+            PhoneVR requires to read your external storage to load device parameters.
+    </string>
+    <string name="low_storage_error">
+            Detector dependencies cannot be downloaded due to low device storage
+    </string>
+    <string name="switch_viewer">
+            Switch Cardboard viewer
+    </string>
+    <string name="switch_phonevr_server">Switch PhoneVR Server</string>
+    <string name="remember_choice">Remember choice</string>
+    <string name="max_brightness">Max Brightness</string>
+    <string name="hand_tracking">Hand tracking (camera)</string>
+    <string name="hand_tracking_camera_permission">
+            Hand tracking needs the camera permission. It is disabled for this session.
+    </string>
+</resources>
